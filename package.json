@@ -2,10 +2,10 @@
   "name": "projectmessenger",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "webpack serve",
+    "server": "nodemon server/index.js",
     "watch": "webpack --watch",
     "dev": "npm run watch & npm run server"
   },
@@ -20,8 +20,19 @@
   },
   "homepage": "https://github.com/BeatsMickey/ProjectMessenger#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "consolidate": "^0.16.0",
+    "express": "^4.17.1",
+    "express-mysql-session": "^2.1.4",
+    "express-session": "^1.17.1",
+    "handlebars": "^4.7.6",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.6",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "sequelize": "^6.3.5",
+    "socket.io": "^3.0.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.8",
@@ -29,6 +40,7 @@
     "@babel/preset-env": "^7.12.7",
     "@babel/preset-react": "^7.12.7",
     "babel-loader": "^8.2.2",
+    "sequelize-cli": "^6.2.0",
     "webpack": "^5.9.0",
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0"

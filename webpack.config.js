@@ -7,7 +7,7 @@ module.exports = {
     },
     context: path.resolve(__dirname, "src"),
     output: {
-        path: path.resolve(__dirname, "public"),
+        path: path.resolve(__dirname, "public", "build"),
         filename: 'app.js',
     },
     resolve: {
