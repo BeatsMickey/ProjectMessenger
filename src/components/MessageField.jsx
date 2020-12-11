@@ -22,7 +22,6 @@ export default function MessageField(props) {
     })
 
     const scrollChange = () => {
-        console.log(messageFieldEl.current.scrollHeight - (messageFieldEl.current.scrollTop + messageFieldEl.current.clientHeight));
         if(messageFieldEl.current.scrollHeight - (messageFieldEl.current.scrollTop + messageFieldEl.current.clientHeight) < 35) {
             changeBackToDownShow(false);
         } else {
