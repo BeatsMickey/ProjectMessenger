@@ -1,0 +1,30 @@
+.message-field {
+    position: relative;
+    height: 85vh;
+    border: 1px solid #e5e1e1;
+    background-color: #a8d7ec;
+    border-radius: 5px;
+    margin: 10px;
+    overflow: auto;
+}
+
+.message-toast {
+    margin: 5px;
+}
+.message-item {
+    word-break:break-all;
+}
+
+.message-del {
+    border: 1px solid #e5e1e1;
+    margin: 4px;
+}
+
+.back-to-top-btn {
+    position: fixed; /* Fixed/sticky position */
+    bottom: 90px; /* Place the button at the bottom of the page */
+    right: 130px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+}
+
+

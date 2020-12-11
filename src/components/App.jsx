@@ -1,36 +1,43 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
 import MessageField from './MessageField';
 import MessageForm from "./MessageForm";
+import ChatList from "./ChatList";
+import Header from "./Header";
 
-
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default function App(props) {
     const [messages, changeMessages] = useState(props.messages);
 
-    const addMessage = (text) => {
-        changeMessages([...messages, {id:messages.length, user_id:2, text: text, name: 'man'}, botAnswer()]);
+    const addMessage = useCallback((text) => {
+        changeMessages([...messages, {id:messages.length, user_id:2, text: text, name: 'man'}]);
+    }, [messages])
 
-    }
-
-    const delMessage = (id) => {
+    const delMessage = useCallback((id) => {
         const array = [...messages];
-        for(let i = 0; i <= array.length - 1; i++) {
-            if(array[i].id === id) {
-                array.splice(i, 1);
-                break;
+        array.find((elem, index) => {
+            if(elem.id === id) {
+                array.splice(index, 1);
+                return 1
             }
-        }
+        })
         changeMessages(array);
-    }
-
-    const botAnswer = () => {
-        return {id:messages.length+1, user_id:1, text: 'Очень  интересно', name: 'bot'}
-    }
+    })
 
     return (
-        <>
-            <MessageField messages={messages} delMessage={delMessage} />
+        <Container className="p-2">
+            <Header />
+            <Row>
+                <Col sm={2}>
+                    <ChatList />
+                </Col>
+                <Col sm={10}>
+                    <MessageField messages={messages} delMessage={delMessage} />
+                </Col>
+            </Row>
             <MessageForm addMessage={addMessage} />
-        </>
+        </Container>
     );
 }
