@@ -1,0 +1,32 @@
+.message-field {
+    position: relative;
+    height: 85vh;
+    border: 1px solid #e5e1e1;
+    background-color: #a8d7ec;
+    border-radius: 5px;
+    margin: 10px;
+    overflow: auto;
+}
+
+.message-toast {
+    margin: 5px;
+}
+.message-item {
+    word-break:break-all;
+}
+
+.message-del {
+    border: 1px solid #e5e1e1;
+    margin: 4px;
+}
+
+.back-to-top-btn {
+    display: block;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 1%;
+    left: 92%;
+    z-index: 99;
+}
+
+

@@ -42,7 +42,7 @@ app.use(express.urlencoded({ extended: true }));
 //     host: "localhost"
 // });
 
-const db = require('./models/index');
+// const db = require('./models/index');
 
 
 app.get('/', (req, res) => {
@@ -55,6 +55,7 @@ app.get('/', (req, res) => {
 <body>
     <div id="root"></div>
     <script src="/build/app.js"></script>
+
 </body>
 </html>`);
 });

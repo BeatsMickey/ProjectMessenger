@@ -1,5 +1,7 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
 
+import Toast from 'react-bootstrap/Toast';
+import {ToastHeader} from "react-bootstrap";
 
 export default function Message(props) {
 
@@ -8,6 +10,10 @@ export default function Message(props) {
     }
 
     return (
-        <div>{props.message.name} : {props.message.text} <span onClick={delMessage}>Удалить</span></div>
+        <Toast className="message-toast" onClose={delMessage}>
+            <ToastHeader>
+                <strong className="mr-auto message-item">{props.message.name} : {props.message.text}</strong>
+            </ToastHeader>
+        </Toast>
     );
 }
