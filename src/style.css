@@ -7,6 +7,19 @@
     margin: 10px;
     overflow: auto;
 }
+.message-field::-webkit-scrollbar {
+    width: 0;
+}
+
+.title-message-field {
+    display: block;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background-color: azure;
+    text-align: center;
+}
 
 .message-toast {
     margin: 5px;

@@ -9,11 +9,11 @@ import Button from 'react-bootstrap/Button';
 export default function Header() {
     return(
         <Navbar bg="light" variant="light">
-            <Navbar.Brand href="#home">Messenger</Navbar.Brand>
+            <Navbar.Brand href="/">Messenger</Navbar.Brand>
             <Nav className="mr-auto">
                 <Nav.Link href="#home">Список контактов</Nav.Link>
                 <Nav.Link href="#features">Добавить чат</Nav.Link>
-                <Nav.Link href="#pricing">Профиль</Nav.Link>
+                <Nav.Link href="/profile/">Профиль</Nav.Link>
             </Nav>
             <Form inline>
                 <FormControl type="text" placeholder="Поиск" className="mr-sm-2" />

@@ -45,7 +45,7 @@ app.use(express.urlencoded({ extended: true }));
 // const db = require('./models/index');
 
 
-app.get('/', (req, res) => {
+app.get(/.*/, (req, res) => {
     res.send(`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,10 +55,11 @@ app.get('/', (req, res) => {
 <body>
     <div id="root"></div>
     <script src="/build/app.js"></script>
-
 </body>
 </html>`);
 });
+
+
 
 http.listen(3000, () => {
     console.log('Server listening on 3000 port.');
