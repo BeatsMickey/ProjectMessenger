@@ -1,8 +1,12 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { addMessage } from "../store/chat/actions";
+import { useParams } from "react-router-dom";
 
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
+
 
 
 
@@ -15,13 +19,17 @@ export default function (props) {
         inputEl.current.focus();
     })
 
+    const {chatId} = useParams();
+    const dispatch = useDispatch();
+
+
     const handleChange = (event) => {
         setValue(event.target.value);
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        props.addMessage(value);
+        dispatch(addMessage(chatId, value, 1, 'man'));
         setValue('');
     }
 
