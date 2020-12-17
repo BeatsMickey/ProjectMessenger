@@ -27,11 +27,11 @@ export default function (props) {
         setValue(event.target.value);
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = useCallback((event) => {
         event.preventDefault();
         dispatch(addMessage(chatId, value, 1, 'man'));
         setValue('');
-    }
+    }, [addMessage, dispatch])
 
     return (
         <form onSubmit={handleSubmit}>

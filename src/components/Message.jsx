@@ -11,9 +11,9 @@ export default function Message(props) {
     const {chatId} = useParams();
     const dispatch = useDispatch();
 
-    const delMessage = () => {
+    const delMessage = useCallback(() => {
         dispatch(removeMessage(chatId, props.message.id));
-    }
+    }, [removeMessage, dispatch])
 
     return (
         <Toast className="message-toast" onClose={delMessage}>

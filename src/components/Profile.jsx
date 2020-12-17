@@ -8,9 +8,8 @@ export default function Profile() {
     const profileFromStore = useSelector(state => state.profile)
     return(
             <Container className="p-2">
-                {console.log(profileFromStore)}
                 <Header />
-                <p>Профиль</p>
+                <p>{profileFromStore.name}</p>
             </Container>
     )
 }

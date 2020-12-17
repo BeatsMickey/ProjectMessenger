@@ -10,7 +10,6 @@ export default function ChatList(props) {
     const dispatch = useDispatch();
 
     const chatListRender = () => {
-        console.log(chatsFromStore);
         const arr = [];
         for(let key in chatsFromStore) {
             arr.push(<Nav.Item>
@@ -20,9 +19,9 @@ export default function ChatList(props) {
         return arr
     }
 
-    const add = () => {
+    const add = useCallback(() => {
         dispatch(addChat('newChat'));
-    }
+    }, [addChat, dispatch])
 
     return (
         <Nav variant="tabs" className="flex-column">
