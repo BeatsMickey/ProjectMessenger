@@ -1,13 +1,19 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import Toast from 'react-bootstrap/Toast';
-import {ToastHeader} from "react-bootstrap";
+import { ToastHeader } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import { removeMessage } from "../store/chat/actions";
 
 export default function Message(props) {
 
-    const delMessage = () => {
-        props.delMessage(props.message.id);
-    }
+    const {chatId} = useParams();
+    const dispatch = useDispatch();
+
+    const delMessage = useCallback(() => {
+        dispatch(removeMessage(chatId, props.message.id));
+    }, [removeMessage, dispatch])
 
     return (
         <Toast className="message-toast" onClose={delMessage}>
