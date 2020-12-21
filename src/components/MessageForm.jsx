@@ -1,16 +1,12 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { addMessage } from "../store/chat/actions";
+import { addMessage, fetchAddMessage } from "../store/chat/actions";
 import { useParams } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
 
-import Button from 'react-bootstrap/Button';
-import InputGroup from 'react-bootstrap/InputGroup';
-import FormControl from 'react-bootstrap/FormControl';
-
-
-
-
-export default function (props) {
+export default function MessageForm(props) {
     const [value, setValue] = useState('');
 
     const inputEl = useRef(null);
@@ -29,9 +25,9 @@ export default function (props) {
 
     const handleSubmit = useCallback((event) => {
         event.preventDefault();
-        dispatch(addMessage(chatId, value, 1, 'man'));
+        dispatch(fetchAddMessage(chatId, value, 1, 'man'));
         setValue('');
-    }, [addMessage, dispatch])
+    }, [value, dispatch])
 
     return (
         <form onSubmit={handleSubmit}>

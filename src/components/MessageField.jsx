@@ -1,11 +1,8 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
-import Message from './Message';
+import Message from "./Message";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-
-import BackToDownButton from './BackToDownButton';
-
-
+import BackToDownButton from "./BackToDownButton";
 
 export default function MessageField(props) {
     const [backToDownShow, changeBackToDownShow] = useState(false);
