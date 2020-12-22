@@ -1,33 +1,23 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addChat } from "../store/chat/actions";
-
-import Nav from 'react-bootstrap/Nav';
+import Nav from "react-bootstrap/Nav";
+import ChatItem from "./ChatItem";
+import ChatListForm from "./ChatListForm";
 
 export default function ChatList(props) {
 
     const chatsFromStore = useSelector(state => state.chats.chats);
     const dispatch = useDispatch();
 
-    const chatListRender = () => {
-        const arr = [];
-        for(let key in chatsFromStore) {
-            arr.push(<Nav.Item>
-                        <Nav.Link href={`/chat/${key}`}> {chatsFromStore[key].title} </Nav.Link>
-                    </Nav.Item>);
-        }
-        return arr
+    const chatItemRender = (key) => {
+        return <ChatItem key={key} chatId={key} title={chatsFromStore[key].title} />
     }
 
-    const add = useCallback(() => {
-        dispatch(addChat('newChat'));
-    }, [addChat, dispatch])
-
     return (
-        <Nav variant="tabs" className="flex-column">
-            {chatListRender()}
-            <Nav.Item>
-                <Nav.Link onClick={add}>+</Nav.Link>
+        <Nav variant="tabs" className="flex-column chat-list-field">
+            {Object.getOwnPropertyNames(chatsFromStore).map(chatItemRender)}
+            <Nav.Item className="list-form">
+                <ChatListForm />
             </Nav.Item>
         </Nav>
     )

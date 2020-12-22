@@ -42,4 +42,19 @@
     z-index: 99;
 }
 
+.chat-list-field {
+    position: relative;
+    flex-wrap: nowrap;
+    height: 85vh;
+    overflow: auto;
+}
+
+.list-form {
+    display: block;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    z-index: 99;
+}
+
 

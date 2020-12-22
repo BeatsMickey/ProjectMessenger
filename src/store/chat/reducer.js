@@ -1,6 +1,5 @@
-import update from 'immutability-helper';
+import update from "immutability-helper";
 import { ADD_CHAT, ADD_MESSAGE, REMOVE_CHAT, REMOVE_MESSAGE } from "./actions";
-
 
 const initialState = {
     chats: {
@@ -13,7 +12,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_CHAT:
-            const newChatId = Object.keys(state.chats).length + 1;
+            const newChatId = action.chatId;
             return update(state, {
                 chats: {
                     $merge : {
@@ -25,8 +24,11 @@ const reducer = (state = initialState, action) => {
                 }
             });
         case REMOVE_CHAT:
+            const chatId = action.chatId;
             return update(state, {
-                //TODO
+                chats: {
+                    $unset: [chatId]
+                }
             });
         case ADD_MESSAGE:
             const messageId = state.chats[action.chatId].messageList.length + 1;

@@ -1,9 +1,8 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
-import { Switch, Route, Redirect } from 'react-router-dom';
-import App from './App';
+import { Switch, Route, Redirect } from "react-router-dom";
+import App from "./App";
 import Profile from "./Profile";
 import HomePage from "./HomePage";
-
 
 export default function Router(props) {
     return (
