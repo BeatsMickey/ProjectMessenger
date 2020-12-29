@@ -7,18 +7,18 @@ import { removeChat } from "../store/chat/actions";
 export default function ChatItem(props) {
     const dispatch = useDispatch();
 
-    const handleNavigate = useCallback((event, link) => {
+    const handleNavigate = useCallback((event) => {
         event.preventDefault();
-        dispatch(push(link));
+        dispatch(push(`/chat/${props.chatId}`));
     }, [dispatch]);
 
     const delChat = useCallback(() => {
         dispatch(removeChat(props.chatId));
-    }, [dispatch]);
+    }, [props.chatId, dispatch]);
 
     return (
         <Nav.Item>
-            <Nav.Link onClick={(event)=>handleNavigate(event,`/chat/${props.chatId}`)}> {props.title} </Nav.Link><span onClick={delChat}>x</span>
+            <Nav.Link onClick={handleNavigate}> {props.title} </Nav.Link><span onClick={delChat}>x</span>
         </Nav.Item>
     );
 }

@@ -22,7 +22,7 @@ export default function ChatListForm(props) {
         dispatch(addChat(value, newChatId));
         setValue('');
         dispatch(push(`/chat/${newChatId}`));
-    }, [value, dispatch])
+    }, [chatsFromStore, value, dispatch])
 
     return (
         <form onSubmit={add}>

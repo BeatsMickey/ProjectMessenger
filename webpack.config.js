@@ -26,15 +26,21 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 options: {
-                    presets: ['@babel/env', '@babel/react'],
+                    presets: [
+                        ['@babel/env', {
+                        "exclude": ["transform-async-to-generator", "transform-regenerator"]
+                    }],
+                        '@babel/react'
+                    ],
                     plugins: [
                         [
                             "@babel/plugin-proposal-class-properties",
                             {
                                 "loose": true
                             }
-                        ]
-                    ]
+                        ],
+                        ["module:fast-async", { "spec": true }],
+                    ],
                 }
             },
             {

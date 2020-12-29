@@ -5,7 +5,6 @@ const initialState = {
     chats: {
         1: {title: 'Чат 1', messageList: [{id:1, user_id:1, text:'text1', name: 'man1' }]},
         2: {title: 'Чат 2', messageList: [{id:2, user_id:2, text: 'text2', name: 'man2' }, {id:3, user_id:3, text: 'text3', name: 'man3' }]},
-        3: {title: 'Чат 3', messageList: []},
     },
 }
 
