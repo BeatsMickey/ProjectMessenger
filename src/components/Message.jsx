@@ -12,7 +12,7 @@ export default function Message(props) {
 
     const delMessage = useCallback(() => {
         dispatch(removeMessage(chatId, props.message.id));
-    }, [dispatch])
+    }, [props.message, dispatch])
 
     return (
         <Toast className="message-toast" onClose={delMessage}>

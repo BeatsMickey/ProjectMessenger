@@ -8,7 +8,6 @@ export default function MessageField(props) {
     const [backToDownShow, changeBackToDownShow] = useState(false);
 
     const messageFieldEl = useRef(null);
-
     const {chatId} = useParams();
     const messagesFromStore = useSelector(state => state.chats.chats[chatId])
 

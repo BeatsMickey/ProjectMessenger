@@ -7,10 +7,12 @@ import { createBrowserHistory } from "history";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import mainSaga from "./sagas/";
+import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 
 const persistConfig = {
     key: 'root',
-    storage
+    storage,
+    stateReconciler: autoMergeLevel2,
 }
 
 export const history = createBrowserHistory();
